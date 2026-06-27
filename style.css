@@ -157,7 +157,7 @@ hr.thin-line {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('Untitled design (7).jpg');
+    background-image: url('Untitled design (7).png');
     background-size: contain; /* Scales to exactly fit height */
     background-position: center center;
     background-repeat: no-repeat;
