@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 /* Base Reset & Typography */
+html {
+    -webkit-text-size-adjust: 100%; 
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -34,6 +37,8 @@ body {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
     margin: 10px 0 25px 0; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; /* Allows z-index to work */
+    z-index: 10; /* Forces shadow to cast over images below */
 }
 .btn-jade:hover {
     transform: translateY(-2px);
@@ -56,6 +61,12 @@ header {
     width: 100%;
     display: block;
     margin: 0 auto 40px auto; 
+    transition: transform 0.2s ease; /* Hover physics */
+    position: relative;
+    z-index: 1; /* Sits below the button shadow */
+}
+.setup-img:hover {
+    transform: translateY(-2px); /* Subtle float */
 }
 .book-image { 
     max-width: 450px; 
@@ -70,6 +81,11 @@ header {
 .crown-sigil {
     max-width: 45px; 
     margin-bottom: 5px; 
+    display: inline-block;
+}
+.hermes-img {
+    max-width: 120px;
+    margin: 0 auto 20px auto;
     display: inline-block;
 }
 .sticky-logo {
@@ -126,7 +142,7 @@ header {
 .pb-large { padding-bottom: 80px; }
 
 .prologue-section { padding: 30px 20px 20px 20px; } 
-.main-text-section { padding: 20px 20px 80px 20px; } 
+.main-text-section { padding: 20px 20px 20px 20px; } /* Removed bottom 80px gap */
 .prologue-text { font-size: 1.25rem; margin-top: 10px; }
 
 hr.thin-line { 
@@ -138,7 +154,7 @@ hr.thin-line {
 
 /* New Elements (Quotes & Hermes Section) */
 .quotes-wrapper {
-    max-width: 600px; /* Widened so it looks less squished on desktop */
+    max-width: 600px; 
     margin: 0 auto;
 }
 .static-quote {
@@ -147,26 +163,29 @@ hr.thin-line {
     margin-bottom: 25px;
     color: #333333;
 }
+.quotes-wrapper .static-quote:last-child {
+    margin-bottom: 0; /* Kills extra padding below the very last quote */
+}
 
-/* 28% Opacity Background Layer Setup */
+/* 28% Opacity Background Layer Setup - Fixed PNG */
 .hermes-section {
     position: relative;
-    overflow: hidden; /* Ensures image doesn't bleed outside the green box */
+    overflow: hidden; 
 }
 .hermes-section::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: url('Untitled design (7).png');
-    background-size: contain; /* Scales to exactly fit height */
+    background-size: contain; 
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.28; /* Exact 28% opacity */
-    z-index: 0; /* Drops behind the text */
+    opacity: 0.28; 
+    z-index: 0; 
 }
 .hermes-section .container {
     position: relative;
-    z-index: 1; /* Lifts the text to sit perfectly on top */
+    z-index: 1; 
 }
 .hermes-section p {
     margin-bottom: 12px; 
@@ -200,10 +219,11 @@ hr.thin-line {
 .social-item:hover { text-decoration: underline; }
 .social-icon { width: 20px; height: 20px; fill: currentColor; }
 
-/* --- MOBILE RESPONSIVENESS --- */
+/* --- AGGRESSIVE MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .marquee-content span {
-        font-size: 0.9rem; 
+        font-size: 0.85rem !important; 
+        margin: 0 20px !important; 
     }
     .container {
         padding-left: 20px; 
