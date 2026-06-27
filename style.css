@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+/* Base Reset & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFFFFF;
+    color: #060606;
+    line-height: 1.6;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Color Utility Classes */
+.bg-forest { background-color: #17490C; color: #F0F3F5; }
+.bg-black { background-color: #060606; color: #FFFFFF; }
+.bg-white { background-color: #FFFFFF; color: #060606; }
+.text-platinum { color: #F0F3F5; }
+
+/* Buttons */
+.btn-jade {
+    background-color: #1FB622;
+    color: #FFFFFF;
+    padding: 16px 45px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 40px; 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+    margin: 10px 0 25px 0; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-jade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Layout & Imagery */
+header {
+    padding: 0;
+    margin: 0;
+    line-height: 0; 
+}
+.header-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.setup-img {
+    max-width: 600px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 40px auto; 
+}
+.book-image { 
+    max-width: 450px; 
+    width: 100%; 
+    display: block; 
+    margin: 10px auto 0 auto; 
+    transition: transform 0.2s ease;
+}
+.book-image:hover {
+    transform: translateY(-2px);
+}
+.crown-sigil {
+    max-width: 45px; 
+    margin-bottom: 5px; 
+    display: inline-block;
+}
+.sticky-logo {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: auto;
+    z-index: 100;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease;
+}
+.sticky-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Seamless Marquee */
+.marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    background-color: #060606;
+    color: #FFFFFF;
+    padding: 22px 0;
+}
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    animation: scroll 75s linear infinite; 
+}
+.marquee-content span {
+    margin: 0 40px;
+    font-size: 1.15rem; 
+    white-space: nowrap;
+    display: inline-block;
+}
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Spacing & Sections */
+.container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+.container p { margin-bottom: 18px; }
+.center-text { text-align: center; }
+
+.pt-small { padding-top: 20px; }
+.pb-small { padding-bottom: 20px; }
+.pt-large { padding-top: 80px; }
+.pb-large { padding-bottom: 80px; }
+
+.prologue-section { padding: 30px 20px 20px 20px; } 
+.main-text-section { padding: 20px 20px 80px 20px; } 
+.prologue-text { font-size: 1.25rem; margin-top: 10px; }
+
+hr.thin-line { 
+    border: 0; 
+    height: 1px; 
+    background-color: #CCCCCC; 
+    margin: 40px 0; 
+}
+
+/* New Elements (Quotes & Hermes Section) */
+.quotes-wrapper {
+    max-width: 600px; /* Widened so it looks less squished on desktop */
+    margin: 0 auto;
+}
+.static-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: #333333;
+}
+
+/* 28% Opacity Background Layer Setup */
+.hermes-section {
+    position: relative;
+    overflow: hidden; /* Ensures image doesn't bleed outside the green box */
+}
+.hermes-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('Untitled design (7).jpg');
+    background-size: contain; /* Scales to exactly fit height */
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.28; /* Exact 28% opacity */
+    z-index: 0; /* Drops behind the text */
+}
+.hermes-section .container {
+    position: relative;
+    z-index: 1; /* Lifts the text to sit perfectly on top */
+}
+.hermes-section p {
+    margin-bottom: 12px; 
+}
+
+/* Footer */
+.footer-socials { 
+    padding: 40px 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.footer-socials p { font-weight: 600; font-size: 1.1rem; margin: 0; }
+.social-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.social-item:hover { text-decoration: underline; }
+.social-icon { width: 20px; height: 20px; fill: currentColor; }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .marquee-content span {
+        font-size: 0.9rem; 
+    }
+    .container {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    .hermes-section .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
